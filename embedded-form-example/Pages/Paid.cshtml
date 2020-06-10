@@ -1,0 +1,19 @@
+@page
+@model embedded_form_example.Pages.PaidModel
+@{
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Payment object received:</h1>
+</div>
+<div>
+    <pre><code id="code" class="json"></code></pre>
+</div>
+<script>
+    const obj = @Html.Raw(@ViewData["Payment"])
+    const formattedJSON = JSON.stringify(obj, null, 2);
+    document.getElementById('code').innerHTML = formattedJSON;
+    console.log(formattedJSON);
+    hljs.initHighlightingOnLoad();
+</script>
